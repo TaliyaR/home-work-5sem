@@ -1,5 +1,6 @@
 package com.example.homework5sem
 
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
@@ -11,16 +12,27 @@ class MainActivity : AppCompatActivity() {
     private var operand1: Double? = null
     private var operand2: Double? = null
     private var pendingOperation = "="
+    lateinit var sharedPreferences: SharedPreferences
+    private var nightMode = 0
+    private var check = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        sharedPreferences = getSharedPreferences("SharedPrefs", MODE_PRIVATE)
+        nightMode = sharedPreferences.getInt("NightModeInt", 1)
+        check = sharedPreferences.getBoolean("SwitchKey", true)
+        switch_theme.isChecked = check
+        AppCompatDelegate.setDefaultNightMode(nightMode)
+
         switch_theme.setOnCheckedChangeListener { buttonView, isChecked ->
-            if(isChecked){
+            if (isChecked) {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+                check = true
             } else {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+                check = false
             }
         }
 
@@ -163,5 +175,16 @@ class MainActivity : AppCompatActivity() {
             operand1 = 0.0
         }
         newnum!!.setText("")
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        nightMode = AppCompatDelegate.getDefaultNightMode()
+        sharedPreferences = getSharedPreferences("SharedPrefs", MODE_PRIVATE)
+        with(sharedPreferences.edit()) {
+            putInt("NightModeInt", nightMode)
+            putBoolean("SwitchKey", check)
+            commit()
+        }
     }
 }
