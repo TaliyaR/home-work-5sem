@@ -2,65 +2,280 @@
 <MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <ConstraintSet android:id="@+id/open">
+    <ConstraintSet android:id="@+id/start">
 
         <Constraint
-            android:id="@+id/results"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            app:layout_constraintVertical_chainStyle="spread_inside"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_weight="1" />
+            android:id="@+id/result"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:ems="10"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:gravity="end"
+            android:inputType="numberSigned|numberDecimal"
+            android:textColor="@color/colorText"
+            android:textSize="35sp"
+            app:layout_constraintBottom_toTopOf="@+id/newnum"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Constraint
-            android:id="@+id/swipe"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            app:layout_constraintTop_toBottomOf="@id/results"
-            app:layout_constraintVertical_weight="0.4"/>
+            android:id="@+id/operation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="24dp"
+            android:textSize="30sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/newnum"
+            app:layout_constraintEnd_toStartOf="@+id/newnum"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <Constraint
-            android:id="@+id/calc"
-            android:layout_width="match_parent"
+            android:id="@+id/newnum"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:ems="10"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:gravity="end"
+            android:inputType="numberSigned|numberDecimal"
+            android:text="0"
+            android:textColor="@color/colorText"
+            android:textSize="35sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/operation"
+            app:layout_constraintTop_toBottomOf="@id/result"
+            app:layout_constraintBottom_toTopOf="@id/swipe_line"/>
+
+        <Constraint
+            android:id="@+id/buttoncos"
+            android:layout_width="0dp"
             android:layout_height="0dp"
-            app:layout_constraintTop_toBottomOf="@id/swipe"
-            app:layout_constraintVertical_weight="1.7"/>
+            android:layout_marginTop="8dp"
+            android:background="@drawable/buttonshape"
+            android:minWidth="80dp"
+            android:minHeight="80dp"
+            android:text="cos"
+            android:textColor="@color/colorText"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toStartOf="@id/buttonsin"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/swipe_line" />
+
+        <Constraint
+            android:id="@+id/buttonsin"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/buttonshape"
+            android:minWidth="80dp"
+            android:minHeight="80dp"
+            android:text="sin"
+            android:textColor="@color/colorText"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@+id/buttoncos"
+            app:layout_constraintEnd_toStartOf="@id/buttontan"
+            app:layout_constraintStart_toEndOf="@+id/buttoncos"
+            app:layout_constraintTop_toTopOf="@+id/buttoncos" />
+
+        <Constraint
+            android:id="@+id/buttontan"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/buttonshape"
+            android:minWidth="80dp"
+            android:minHeight="80dp"
+            android:text="tan"
+            android:textColor="@color/colorText"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@+id/buttonsin"
+            app:layout_constraintEnd_toStartOf="@id/buttonlog"
+            app:layout_constraintStart_toEndOf="@+id/buttonsin"
+            app:layout_constraintTop_toTopOf="@+id/buttonsin" />
+
+        <Constraint
+            android:id="@+id/buttonlog"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/buttonshape"
+            android:minWidth="80dp"
+            android:minHeight="80dp"
+            android:text="log"
+            android:textColor="@color/colorText"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@+id/buttontan"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/buttontan"
+            app:layout_constraintTop_toTopOf="@+id/buttontan" />
+
+        <Constraint
+            android:id="@+id/button7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/buttonshape"
+            android:minWidth="80dp"
+            android:minHeight="80dp"
+            android:text="7"
+            android:textColor="@color/colorText"
+            android:textSize="25sp"
+            app:layout_constraintEnd_toStartOf="@id/button8"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/swipe_line"/>
+
     </ConstraintSet>
 
-    <ConstraintSet android:id="@+id/hide">
+    <ConstraintSet android:id="@+id/end">
 
         <Constraint
-            android:id="@+id/results"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_chainStyle="spread_inside"
-            app:layout_constraintVertical_weight="1" />
+            android:id="@+id/result"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:ems="10"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:gravity="end"
+            android:inputType="numberSigned|numberDecimal"
+            android:textColor="@color/colorText"
+            android:textSize="35sp"
+            app:layout_constraintBottom_toTopOf="@+id/newnum"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Constraint
-            android:id="@+id/swipe"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            app:layout_constraintTop_toBottomOf="@id/results"
-            app:layout_constraintVertical_weight="0.4"/>
+            android:id="@+id/operation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="24dp"
+            android:textSize="30sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/newnum"
+            app:layout_constraintEnd_toStartOf="@+id/newnum"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <Constraint
-            android:id="@+id/calc"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            app:layout_constraintTop_toBottomOf="@id/results"
-            app:layout_constraintVertical_weight="1.7"/>
+            android:id="@+id/newnum"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:ems="10"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:gravity="end"
+            android:inputType="numberSigned|numberDecimal"
+            android:text="0"
+            android:textColor="@color/colorText"
+            android:textSize="35sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/operation"
+            app:layout_constraintTop_toBottomOf="@id/result"
+            app:layout_constraintBottom_toTopOf="@id/buttoncos"/>
+
+        <Constraint
+            android:id="@+id/buttoncos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/buttonshape"
+            android:minWidth="80dp"
+            android:minHeight="80dp"
+            android:text="cos"
+            android:textColor="@color/colorText"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toStartOf="@id/buttonsin"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/swipe_line" />
+
+        <Constraint
+            android:id="@+id/buttonsin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/buttonshape"
+            android:minWidth="80dp"
+            android:minHeight="80dp"
+            android:text="sin"
+            android:textColor="@color/colorText"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@+id/buttoncos"
+            app:layout_constraintEnd_toStartOf="@id/buttontan"
+            app:layout_constraintStart_toEndOf="@+id/buttoncos"
+            app:layout_constraintTop_toTopOf="@+id/buttoncos" />
+
+        <Constraint
+            android:id="@+id/buttontan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/buttonshape"
+            android:minWidth="80dp"
+            android:minHeight="80dp"
+            android:text="tan"
+            android:textColor="@color/colorText"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@+id/buttonsin"
+            app:layout_constraintEnd_toStartOf="@id/buttonlog"
+            app:layout_constraintStart_toEndOf="@+id/buttonsin"
+            app:layout_constraintTop_toTopOf="@+id/buttonsin" />
+
+        <Constraint
+            android:id="@+id/buttonlog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/buttonshape"
+            android:minWidth="80dp"
+            android:minHeight="80dp"
+            android:text="log"
+            android:textColor="@color/colorText"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@+id/buttontan"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/buttontan"
+            app:layout_constraintTop_toTopOf="@+id/buttontan" />
+
+        <Constraint
+            android:id="@+id/button7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/buttonshape"
+            android:minWidth="80dp"
+            android:minHeight="80dp"
+            android:text="7"
+            android:textColor="@color/colorText"
+            android:textSize="25sp"
+            app:layout_constraintEnd_toStartOf="@id/button8"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/buttoncos"/>
 
     </ConstraintSet>
 
     <Transition
-        app:constraintSetEnd="@id/open"
-        app:constraintSetStart="@id/hide">
-
+        app:constraintSetEnd="@id/end"
+        app:constraintSetStart="@+id/start" >
         <OnSwipe
+            app:touchAnchorId="@id/swipe_line"
+            app:touchAnchorSide="left"
             app:dragDirection="dragUp"
-            app:touchAnchorId="@id/swipe"
-            app:touchAnchorSide="top"
-            app:touchRegionId="@id/swipe" />
+            app:touchRegionId="@id/swipe_line"/>
+        <KeyFrameSet>
+            <KeyPosition
+                app:keyPositionType="parentRelative"
+                app:percentY="0.25"
+                app:framePosition="50"
+                app:motionTarget="@id/swipe_line" />
+        </KeyFrameSet>
     </Transition>
 </MotionScene>
