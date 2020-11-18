@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">homeWork5sem</string>
+    <string name="title">My Store</string>
+    <string name="payments_show_name" translatable="false">Successfully received payment data for %s!</string>
 </resources>
